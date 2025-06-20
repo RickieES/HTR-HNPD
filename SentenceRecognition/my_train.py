@@ -343,7 +343,17 @@ if __name__ == "__main__":
                   Dense(vocab+1),
                   CTCLoss
 
-               3. Arthur Flor
+               3. Retsinas et al. Best practices paper
+                  Conv2D(32, (7,7), relu)+MaxPooling2D((2,2)),
+                  2xResBlock((64, (3,3))),
+                  MaxPooling2D((2,2)),
+                  4xResBlock((128, (3,3))),
+                  MaxPooling2D((2,2)),
+                  4xResBlock((128, (3,3))),
+                  MaxPooling2D((2,2)),
+                  ColumnMaxPool
+                  3xBidirectional(LSTM(256)),
+                  Dense()
           """)
     chosen_model = input("Enter number of desired model: ")
 

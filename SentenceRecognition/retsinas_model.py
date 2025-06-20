@@ -55,7 +55,7 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.MaxPooling2D((2, 2), stride=(2, 2), name="pool1")(x)
+    x = keras.layers.MaxPooling2D((2, 2), name="pool1")(x)
     
     # First residual block
     shortcut_x = x
@@ -81,7 +81,7 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
 
@@ -109,10 +109,10 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
-    x = keras.layers.MaxPooling2D((2, 2), stride=(2, 2), name="pool2")(x)
+    x = keras.layers.MaxPooling2D((2, 2), name="pool2")(x)
 
 
     # Third residual block
@@ -139,7 +139,7 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
 
@@ -167,7 +167,7 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
 
@@ -195,7 +195,7 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
 
@@ -223,10 +223,10 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
-    x = keras.layers.MaxPooling2D((2, 2), stride=(2, 2), name="pool3")(x)
+    x = keras.layers.MaxPooling2D((2, 2), name="pool3")(x)
 
 
     # Seventh residual block
@@ -253,7 +253,7 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
 
@@ -281,7 +281,7 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
 
@@ -309,7 +309,7 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
 
 
@@ -337,11 +337,11 @@ def build_model(image_width, image_height, mtuc: MyTrainUtils):
     )(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.Dropout(0.2)(x)
-    x = keras.layers.Add(x, shortcut_x)
+    x = keras.layers.Add()([x, shortcut_x])
     x = keras.layers.ReLU()(x)
     
     # TODO: check ColumnMaxPool implementation as a MaxPooling layer
-    x = keras.layers.MaxPooling2D((2, 2), stride=(2, 2), name="pool4")(x)
+    x = keras.layers.MaxPooling2D((2, 2), name="pool4")(x)
     
     # RNNs.
     x = keras.layers.Bidirectional(
