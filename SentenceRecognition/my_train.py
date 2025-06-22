@@ -247,6 +247,9 @@ if __name__ == "__main__":
         mtuc.model_config['vocab'] = list(mtuc.model_config['vocab'])
         json.dump(mtuc.model_config, f)
         mtuc.model_config['vocab'] = set(mtuc.model_config['vocab'])
+        
+    # Create character mapping with the final vocabulary list
+    mtuc.set_char_mappings()
 
     # Split dataset in train, test and validation
     split_idx = int(0.9 * len(dataset))
@@ -257,7 +260,8 @@ if __name__ == "__main__":
     validation_samples = test_samples[:val_split_idx]
     test_samples = test_samples[val_split_idx:]
 
-    assert len(dataset) == len(train_samples) + len(validation_samples) + len(test_samples)
+    assert len(dataset) == len(train_samples) + len(validation_samples) + len(
+        test_samples)
 
     print(f"Total training samples: {len(train_samples)}")
     print(f"Total validation samples: {len(validation_samples)}")

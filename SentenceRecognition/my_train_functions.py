@@ -288,7 +288,9 @@ class MyTrainUtils:
             self.model_config = model_config
 
         self.AUTOTUNE = tf.data.AUTOTUNE
+        
 
+    def set_char_mappings(self):
         # Mapping characters to integers.
         self.char_to_num = keras.layers.StringLookup(
             vocabulary = list(self.model_config['vocab']), mask_token = None)
