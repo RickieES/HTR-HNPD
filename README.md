@@ -10,7 +10,7 @@ This repository contains support code for Ms Thesis on HTR dated 2025.
 Provides an ALTO and PAGE XML parser that extracts text lines region from
 full page images and the corresponding labels, saves each region as an
 independent PNG image and a TXT file with the image_file / label association,
-like IAM and other datasets do.
+like IAM and other datasets.
 
 ### ImagePreprocessing
 
@@ -33,8 +33,20 @@ The changes are documented in [mltu fork](https://github.com/RickieES/mltu/tree/
 
 A pull request will be prepared for official PyLessons repository.
 
+Besides the official inferenceModel.py file, a modified version named
+inferenceModel2.py is provided that uses a regular keras saved model. For ease
+testing, a model directory is provided with a sample saved model.
+
 ### SentenceRecognition
 
 Provides some CNN and CRNN implementations to perform HTR/OCR
 using TensorFlow and Keras.
+
+### File requirements.txt
+
+This file contains requirements for the whole repository. It includes some extra
+not strictly required packages, namely build and setuptools, which were used to
+prepare the ad hoc mltu package. Besides, it does NOT include any mltu package,
+neither the official one nor the provided in this repository, so make sure to
+run the above pip install command.
 
