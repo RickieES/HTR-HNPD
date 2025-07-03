@@ -1,0 +1,10 @@
+batch_size: 32
+height: 64
+learning_rate: 0.0005
+max_text_length: 98
+model_path: /home/rpalomares/TFM/ppHTR/SentenceRecognition01/model/202507030119
+train_epochs: 1000
+train_workers: 20
+vocab: "byqexamul=TjB\xF3p&YSg-5zV\xF1hF)GM\xE1ikonrcdKvDOE\u0301Zt\xD1Q,I H:1NRCsLJ;A(\xE9\
+  PW.f"
+width: 2048

@@ -16,6 +16,8 @@ import pandas as pd
 import tensorflow as tf
 
 from mltu.configs import BaseModelConfigs
+from mltu.tensorflow.losses import CTCloss
+from mltu.tensorflow.metrics import CWERMetric, CERMetric, WERMetric
 from mltu.transformers import ImageResizer
 from mltu.utils.text_utils import ctc_decoder, get_cer, get_wer
 

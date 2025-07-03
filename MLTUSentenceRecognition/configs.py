@@ -14,7 +14,7 @@ from mltu.configs import BaseModelConfigs
 class ModelConfigs(BaseModelConfigs):
     def __init__(self):
         super().__init__()
-        self.model_path = os.path.join("/path/to/model_folder",
+        self.model_path = os.path.join("model",
                                        datetime.strftime(datetime.now(),
                                                          "%Y%m%d%H%M"))
         self.vocab = ""
